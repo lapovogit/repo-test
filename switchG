@@ -6,6 +6,7 @@ int eth1/2
  no shut
 !
 int eth1/3
+ description RESERVED-PZ for 100G core
 !
 vlan 999
  name dummyVLAN
