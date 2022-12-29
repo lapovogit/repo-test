@@ -1,0 +1,14 @@
+hostname switchC
+!
+int et1
+!
+int et2
+!
+int et3
+!
+int et4
+!
+int et5
+!
+int et6
+!
