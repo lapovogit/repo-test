@@ -15,6 +15,9 @@ int et4
  switchport access vlan 332
 !
 int et5
+ description RESERVED_PZ
+ no switchport
+ shut
 !
 int et6
  shut
