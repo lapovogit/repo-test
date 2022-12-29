@@ -15,7 +15,7 @@ int et4
  switchport access vlan 332
 !
 int et5
- description RESERVED_PZ
+ description RESERVED_PZ for 40G core
  no switchport
  shut
 !
