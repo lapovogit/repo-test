@@ -3,6 +3,8 @@ hostname switchD
 int et1
 !
 int et2
+ shut
+ descriotion test D switch
 !
 int et3
 !
