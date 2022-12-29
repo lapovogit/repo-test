@@ -22,6 +22,7 @@ int et5
  shut
 !
 int et6
+ description test SFP
  no shut
 !
 int et7
