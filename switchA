@@ -1,7 +1,7 @@
 hostname switchA
 !
 int et1
- description ISL to swtichB
+ description ISL to switchB
  no switchport
 !
 int et2
