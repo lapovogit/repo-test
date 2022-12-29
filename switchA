@@ -22,3 +22,8 @@ vlan 332
 int vlan332
  ip address 10.10.10.1/24
  description ServerVlan SVI
+!
+int vlan2
+ ip address 12.12.12.1/30
+ description ISL core vlan
+!
