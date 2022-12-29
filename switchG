@@ -1,0 +1,12 @@
+hostname switchG
+!
+int eth1/1
+!
+int eth1/2
+ no shut
+!
+int eth1/3
+!
+vlan 999
+ name dummyVLAN
+!
