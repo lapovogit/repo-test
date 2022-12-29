@@ -22,6 +22,9 @@ int et5
 int et6
  shut
 !
+int et7
+ no shut
+!
 vlan 332
  name ServerVlanMD
 !
