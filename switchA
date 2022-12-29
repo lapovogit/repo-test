@@ -1,0 +1,22 @@
+hostname switchA
+!
+int et1
+ description ISL to swtichB
+ no switchport
+!
+int et2
+!
+int et3
+!
+int et4
+ description serverA
+ switchport access vlan 332
+!
+int et5
+!
+vlan 332
+ name ServerVlan
+!
+int vlan332
+ ip address 10.10.10.1/24
+ description ServerVlan SVI
