@@ -16,6 +16,9 @@ int et4
 !
 int et5
 !
+int et6
+ shut
+!
 vlan 332
  name ServerVlan
 !
