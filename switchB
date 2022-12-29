@@ -9,7 +9,7 @@ int et2
  no switchport
 !
 int et3
- description TEST
+ description TEST QSFP
  no shut
 !
 int et4
