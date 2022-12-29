@@ -13,7 +13,7 @@ int et3
  no shut
 !
 int et4
- description serverA for MD
+ description serverA for MD test 
  switchport access vlan 332
 !
 int et5
