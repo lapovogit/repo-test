@@ -1,0 +1,8 @@
+hostname switchD
+!
+int et1
+!
+int et2
+!
+int et3
+!
