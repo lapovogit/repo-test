@@ -5,6 +5,8 @@ int et1
  no switchport
 !
 int et2
+ description Uplink to coreA
+ no switchport
 !
 int et3
 !
