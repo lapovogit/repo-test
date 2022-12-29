@@ -1,0 +1,42 @@
+hostname switchB
+!
+int et1
+ description ISL to switchA
+ no switchport
+!
+int et2
+ description Uplink to coreB
+ no switchport
+!
+int et3
+ description TEST
+ no shut
+!
+int et4
+ description serverA for MD
+ switchport access vlan 332
+!
+int et5
+ description RESERVED_PZ for 40G core
+ no switchport
+ shut
+!
+int et6
+ shut
+!
+int et7
+ no shut
+!
+vlan 332
+ name ServerVlanMD
+!
+int vlan332
+ ip address 10.10.10.2/24
+ description ServerVlan SVI
+!
+int vlan2
+ ip address 12.12.12.2/30
+ description ISL core vlan
+!
+int vlan 999
+!
