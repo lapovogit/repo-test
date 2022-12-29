@@ -9,6 +9,8 @@ int et2
  no switchport
 !
 int et3
+ description TEST
+ no shut
 !
 int et4
  description serverA for MD
