@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7178 bytes
+Current configuration : 7224 bytes
 !
-! Last configuration change at 05:03:41 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 05:13:33 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -21,6 +21,10 @@ hostname CSR1000V
 boot-start-marker
 boot-end-marker
 !
+!
+vrf definition ISP_1
+!
+vrf definition ISP_2
 !
 no logging console
 enable secret 9 $9$GNcSrWbM1PyCqU$9.BCza34ClqbgyABGzRV1v5hjCWhaoN9K.gqxCtcCvE
