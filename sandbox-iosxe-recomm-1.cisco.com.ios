@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7195 bytes
+Current configuration : 7178 bytes
 !
-! Last configuration change at 00:49:37 UTC Sat Jan 7 2023 by NETCONF
+! Last configuration change at 05:03:41 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -298,9 +298,8 @@ control-plane
 !
 !
 banner login ^C
-This is my new banner
-Testing ONLY
-state: present
+Nicolas Cage is the
+Tiger King
 ^C
 banner motd ^C
 Welcome to the DevNet Sandbox for CSR1000v and IOS XE
