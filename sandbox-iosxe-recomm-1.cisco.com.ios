@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7244 bytes
+Current configuration : 7349 bytes
 !
-! Last configuration change at 16:50:35 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 17:03:51 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -184,6 +184,9 @@ interface Loopback68
  description Zaza
  ip address 70.50.50.50 255.255.255.255
 !
+interface Loopback71
+ no ip address
+!
 interface Loopback100
  description Configured by RESTCONF
  vrf forwarding ISP_1
@@ -308,6 +311,11 @@ control-plane
 !
 !
 !
+banner login ^C
+This is my new banner
+Testing ONLY
+state: present
+^C
 banner motd ^C
 Welcome to the DevNet Sandbox for CSR1000v and IOS XE
 
