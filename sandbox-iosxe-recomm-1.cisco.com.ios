@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7280 bytes
+Current configuration : 7388 bytes
 !
-! Last configuration change at 05:19:03 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 05:25:00 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -190,7 +190,7 @@ interface Loopback68
 interface Loopback100
  description Configured by RESTCONF
  vrf forwarding ISP_1
- no ip address
+ ip address 172.16.24.1 255.255.255.255
 !
 interface Loopback200
  vrf forwarding ISP_2
@@ -269,6 +269,10 @@ router ospfv3 1
 !
 router ospf 11
  router-id 1.11.111.1
+!
+router bgp 65001
+ bgp log-neighbor-changes
+ neighbor 172.16.24.2 remote-as 65002
 !
 iox
 ip default-gateway 1.1.1.1
