@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7224 bytes
+Current configuration : 7280 bytes
 !
-! Last configuration change at 05:13:33 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 05:19:03 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -23,8 +23,13 @@ boot-end-marker
 !
 !
 vrf definition ISP_1
+ !
+ address-family ipv4
+ exit-address-family
 !
 vrf definition ISP_2
+!
+vrf list ISP_1
 !
 no logging console
 enable secret 9 $9$GNcSrWbM1PyCqU$9.BCza34ClqbgyABGzRV1v5hjCWhaoN9K.gqxCtcCvE
@@ -184,10 +189,12 @@ interface Loopback68
 !
 interface Loopback100
  description Configured by RESTCONF
- ip address 172.16.100.1 255.255.255.0
+ vrf forwarding ISP_1
+ no ip address
 !
 interface Loopback200
- ip address 10.10.10.200 255.255.255.255
+ vrf forwarding ISP_2
+ no ip address
 !
 interface Loopback201
  ip address 10.10.10.201 255.255.255.255
