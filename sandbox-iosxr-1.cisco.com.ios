@@ -1,0 +1,262 @@
+Sat Jan  7 04:27:43.033 UTC
+Building configuration...
+!! IOS XR Configuration 7.3.2
+!! Last configuration change at Sat Jan  7 04:22:00 2023 by admin
+!
+logging buffered 123123123
+username root
+ group root-lr
+ group cisco-support
+ secret 10 $6$XvYiZ/CdPNuK4Z/.$3/15yGC1Br2nlIy/AwZVNsl0BbD.XLbqAL2h8hR4CpBxM.ir4ZilYykiaTqMwe/EB6UySyH7ea/x09ajR6NXz.
+!
+username admin
+ group root-lr
+ group cisco-support
+ secret 10 $6$vEaDc/Yt1OyU4c/.$v0lze75JluVDfcM6rgDlsFY3oMB6ODv6l5rgRnk3bFrvnzSFnoEIF.hcc1O/2.YxnAuRLSy7VQGmGedvoBlOp.
+!
+username developer
+ password 7 15315A1F07257A767B676062
+!
+grpc
+ port 57777
+ no-tls
+ address-family dual
+!
+telemetry model-driven
+ destination-group DG_Test
+  address-family ipv4 40.80.81.106 port 57500
+   encoding self-describing-gpb
+   protocol tcp
+  !
+ !
+ sensor-group SG_Test
+  sensor-path Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes
+  sensor-path Cisco-IOS-XR-ipv4-bgp-oc-oper/oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes
+  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
+  sensor-path Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/default-vrf/afs/af/networks
+  sensor-path Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/community
+ !
+ subscription 1
+  sensor-group-id SG_Test sample-interval 30000
+  destination-id DG_Test
+ !
+!
+nsr process-failures switchover
+vrf PRUEBA
+ address-family ipv4 unicast
+  import route-target
+   100:100
+  !
+  export route-target
+   100:100
+  !
+ !
+!
+vrf pcs_test_confirmed4
+ description test vrf 2
+!
+vrf pcs_test_confirmed45555
+ description test vrf 2
+!
+address-family ipv4 unicast
+!
+tpa
+ vrf default
+  address-family ipv4
+   default-route mgmt
+  !
+ !
+!
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+line default
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+lpts pifib hardware police
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+!
+class-map type traffic match-all testing
+ match destination-address ipv4 1.1.1.1 255.255.255.255
+ match ipv4 icmp-code 8 
+ match protocol icmp 
+ end-class-map
+! 
+interface Bundle-Ether9
+ description *** NO TOUCH - MANAGEMENT INTERFACE ***
+ mtu 1000
+!
+interface Bundle-Ether9.1
+ mtu 3000
+!
+interface Bundle-Ether9.100
+ description reserved
+ mtu 9000
+!
+interface Loopback0
+ description reserved
+ ipv4 address 2.2.2.2 255.255.255.255
+!
+interface Loopback8
+ description MEB
+ ipv6 address 2001:2003:1001::1002/128
+!
+interface Loopback30
+!
+interface Loopback55
+ description Test Lo55
+!
+interface Loopback100
+ description ***MERGE LOOPBACK 100****
+ ipv4 address 1.1.1.100 255.255.255.255
+!
+interface Loopback111
+ description Configured by NETCONF
+!
+interface Loopback200
+ description ***MERGE LOOPBACK 200****
+ ipv4 address 1.1.1.200 255.255.255.255
+!
+interface Loopback345
+!
+interface Loopback998
+ description Testing Ansible
+!
+interface Loopback999
+ description Testing Ansible for Loopback999
+!
+interface Loopback12233
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 10.10.20.175 255.255.255.0
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 1.1.1.1 255.255.255.252
+!
+interface GigabitEthernet0/0/0/1
+ ipv4 address 1.1.1.5 255.255.255.252
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+interface GigabitEthernet0/0/0/4
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ shutdown
+!
+interface GigabitEthernet0/0/0/6
+ shutdown
+!
+route-policy pass-all
+  if destination in (12.1.1.0/24) then
+    drop
+  else
+    set community (999:666)
+  endif
+end-policy
+!
+route-policy ttaattaa
+  if destination in (12.1.1.0/24) then
+    set community (4566:6654)
+  endif
+end-policy
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 10.10.20.254
+  1.1.1.1/32 10.10.20.254
+  11.1.1.0/24 10.10.20.254
+  12.1.1.0/24 10.10.20.254
+ !
+!
+router isis 1
+ is-type level-2-only
+ net 48.1234.1234.1234.00
+ flex-algo 128
+  metric-type delay
+  advertise-definition
+ !
+ address-family ipv4 unicast
+  metric-style wide
+  segment-routing mpls
+ !
+ interface Loopback0
+  address-family ipv4 unicast
+   prefix-sid index 123
+   prefix-sid algorithm 128 index 124
+  !
+ !
+ interface GigabitEthernet0/0/0/0
+  address-family ipv4 unicast
+   fast-reroute per-prefix
+   fast-reroute per-prefix ti-lfa
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+  address-family ipv4 unicast
+  !
+ !
+!
+router isis process1
+!
+router ospf 1
+ nsr
+!
+router bgp 65400
+ bgp router-id 11.1.1.10
+ address-family ipv4 unicast
+  network 11.1.1.0/24 route-policy pass-all
+  network 12.1.1.0/24 route-policy ttaattaa
+ !
+ neighbor 11.1.1.20
+  remote-as 65450
+  address-family ipv4 unicast
+   next-hop-self
+  !
+ !
+ neighbor 11.1.1.21
+  remote-as 65450
+  address-family ipv4 unicast
+   next-hop-self
+  !
+ !
+!
+l2vpn
+ mac limit threshold 100
+ capability high-mode
+ bridge group 1
+  bridge-domain 1
+  !
+ !
+!
+mpls ldp
+ nsr
+!
+xml agent tty
+ iteration off
+!
+netconf agent tty
+!
+ssh server v2
+ssh server vrf default
+ssh server netconf vrf default
+end
