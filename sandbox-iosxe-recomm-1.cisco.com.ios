@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7410 bytes
+Current configuration : 7466 bytes
 !
-! Last configuration change at 17:26:05 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 17:27:59 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -168,6 +168,10 @@ interface Loopback1
  ip address 2.2.2.2 255.255.255.0
  ipv6 address 2::2/128
  ipv6 enable
+!
+interface Loopback2
+ description BARMI
+ no ip address
 !
 interface Loopback45
  description Zaza
