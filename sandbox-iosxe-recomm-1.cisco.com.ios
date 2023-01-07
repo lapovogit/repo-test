@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7387 bytes
+Current configuration : 7410 bytes
 !
-! Last configuration change at 17:11:38 UTC Sat Jan 7 2023 by developer
+! Last configuration change at 17:26:05 UTC Sat Jan 7 2023 by developer
 !
 version 16.9
 service nagle
@@ -164,8 +164,8 @@ interface Loopback0
  ospfv3 1 ipv6 area 0
 !
 interface Loopback1
- description TEST
- no ip address
+ description WHATEVER
+ ip address 2.2.2.2 255.255.255.0
  ipv6 address 2::2/128
  ipv6 enable
 !
